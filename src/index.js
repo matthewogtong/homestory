@@ -5,6 +5,7 @@
 
 const roomNav = document.querySelector('#rooms-nav')
 const body = document.querySelector('body')
+// const titleDiv = document.querySelector('#app-title-div')
 
 // EVENT HANDLERS
 
@@ -24,28 +25,39 @@ const getRooms = () => {
 
 //*** RENDER TITLESCREEN
 const renderAppTitle = () => {
+    const div = document.createElement("div")
     const h1 = document.createElement("h1")
+
+    div.setAttribute('id', 'app-title-div')
+    
     h1.textContent = "HomeStory"
     h1.classList.add('app-title')
-    body.append(h1)
+    
+    body.append(div)
+    div.append(h1)
 }
 
 //*** RENDER ROOMS
 const renderRoom = (roomObj) => {
-    const roomLi = document.createElement('li')
-    roomLi.dataset.id = roomObj.id
-    roomLi.textContent = roomObj.name 
-    roomNav.append(roomLi)
+    const nav = document.createElement('nav')
+    nav.setAttribute('id', 'rooms-nav')
 
-    roomLi.addEventListener('click', event => {
-        renderRoomPage()
+    const li = document.createElement('li')
+    li.dataset.id = roomObj.id
+    li.textContent = roomObj.name 
+
+    nav.append(li)
+    body.append(nav)
+
+    li.addEventListener('click', event => {
+        renderRoomPage(roomObj)
     })
 
 }
 
 /*** RENDER ROOM PAGE */
-const renderRoomPage = () => {
-    console.log('success')
+const renderRoomPage = (roomObj) => {
+    console.log(roomObj.name)
 }
 
 // INITIAL RENDER
@@ -61,5 +73,9 @@ const appTitle = document.querySelector('.app-title')
 appTitle.addEventListener('click', event => {
     getRooms()
     appTitle.remove()
+    const h1 = document.createElement('h1')
+    h1.setAttribute('id', 'home-title')
+    h1.textContent = "HomeStory"
+    body.append(h1)
 })
 
