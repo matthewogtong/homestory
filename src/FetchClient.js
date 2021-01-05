@@ -13,5 +13,4 @@ class FetchClient {
 const baseUrl = "http://localhost:3000"
 const client = new FetchClient(baseUrl)
 
-client.get("/rooms")
-    .then(console.log)
+

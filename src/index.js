@@ -20,11 +20,9 @@ const getRooms = () => {
 }
 
 
+
+
 // RENDER FUNCTIONS
-// const renderNav = () => {
-//     const nav = document.createElement("nav")
-//     nav.setAttribute("id", "rooms-nav")
-// }
 
 
 //*** RENDER TITLESCREEN
