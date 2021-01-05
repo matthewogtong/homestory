@@ -7,6 +7,7 @@ class FetchClient {
         return fetch(this.baseUrl + endpoint) // shouldn't return be implicit??
             .then(response => response.json())
     }
+
 }
 
 const baseUrl = "http://localhost:3000"

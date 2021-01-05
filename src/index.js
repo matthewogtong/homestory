@@ -10,11 +10,11 @@ const body = document.querySelector('body')
 
 // FETCH FUNCTIONS
 const getRooms = () => {
-    fetch('http://localhost:3000/rooms')
-        .then(response => response.json())
+    client.get("/rooms")
         .then(roomsArray => {
             roomsArray.forEach(room => {
-                renderRoom(room)
+                const roomCard = new RoomCard(room)
+                roomCard.render()
             })
         })
 }
@@ -36,27 +36,27 @@ const renderAppTitle = () => {
 }
 
 //*** RENDER ROOMS
-const renderRoom = (roomObj) => {
-    const nav = document.createElement('nav')
-    nav.setAttribute('id', 'rooms-nav')
+// const renderRoom = (roomObj) => {
+//     const nav = document.createElement('nav')
+//     nav.setAttribute('id', 'rooms-nav')
 
-    const li = document.createElement('li')
-    li.dataset.id = roomObj.id
-    li.textContent = roomObj.name 
+//     const li = document.createElement('li')
+//     li.dataset.id = roomObj.id
+//     li.textContent = roomObj.name 
 
-    nav.append(li)
-    body.append(nav)
+//     nav.append(li)
+//     body.append(nav)
 
-    li.addEventListener('click', event => {
-        renderRoomPage(roomObj)
-    })
+//     li.addEventListener('click', event => {
+//         renderRoomPage(roomObj)
+//     })
 
-}
+// }
 
 /*** RENDER ROOM PAGE */
-const renderRoomPage = (roomObj) => {
-    console.log(roomObj.name)
-}
+// const renderRoomPage = (roomObj) => {
+//     console.log(roomObj.name)
+// }
 
 // INITIAL RENDER
 renderAppTitle()
