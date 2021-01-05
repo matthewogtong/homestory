@@ -97,17 +97,23 @@ class RoomCard {
         </div>
         `
 
+        // RENDER ITEM SECTION
+        const itemMain = document.createElement("main")
+        
+
         // APPEND TO BODY
         body.append(roomName)
         roomPageNav.append(homeLi)
         body.append(roomPageNav)
         body.append(formDiv)
+        body.append(itemMain)
 
         // FORM ELEMENTS
         const addItemForm = document.querySelector("#add-item-form")
         console.log(addItemForm)
+        console.log(itemMain)
 
-        
+
     }
 
     render = () => {
