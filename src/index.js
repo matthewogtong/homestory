@@ -35,29 +35,6 @@ const renderAppTitle = () => {
     div.append(h1)
 }
 
-//*** RENDER ROOMS
-// const renderRoom = (roomObj) => {
-//     const nav = document.createElement('nav')
-//     nav.setAttribute('id', 'rooms-nav')
-
-//     const li = document.createElement('li')
-//     li.dataset.id = roomObj.id
-//     li.textContent = roomObj.name 
-
-//     nav.append(li)
-//     body.append(nav)
-
-//     li.addEventListener('click', event => {
-//         renderRoomPage(roomObj)
-//     })
-
-// }
-
-/*** RENDER ROOM PAGE */
-// const renderRoomPage = (roomObj) => {
-//     console.log(roomObj.name)
-// }
-
 // INITIAL RENDER
 renderAppTitle()
 
