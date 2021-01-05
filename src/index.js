@@ -3,9 +3,7 @@
 
 // DOM ELEMENTS
 
-const roomNav = document.querySelector('#rooms-nav')
 const body = document.querySelector('body')
-// const titleDiv = document.querySelector('#app-title-div')
 
 // EVENT HANDLERS
 
