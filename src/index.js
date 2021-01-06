@@ -1,10 +1,16 @@
 // STATE VARIABLES
 
 
-// DOM ELEMENTS
+// DOM ELEMENTS FOR TITLE PAGE
+const titlePageTitleDiv = document.querySelector('#title-title-div')
+const titleHomePageDiv = document.querySelector('#title-home-page-div')
 
-const body = document.querySelector('body')
+// DOM ELEMENTS FOR HOME PAGE
+const roomsHomePageNav = document.querySelector('#rooms-home-page-nav')
+
+// DOM ELEMENTS FOR ROOM PAGE
 const itemMain = document.querySelector("#furniture-items-container")
+
 // EVENT HANDLERS
 
 
@@ -19,63 +25,16 @@ const getRooms = () => {
         })
 }
 
-
-
-
 // RENDER FUNCTIONS
 
 
-//*** RENDER TITLESCREEN
-const renderAppTitle = () => {
-    const div = document.createElement("div")
-    const h1 = document.createElement("h1")
-
-    div.setAttribute('id', 'app-title-div')
-    
-    h1.textContent = "HomeStory"
-    h1.classList.add('app-title')
-    
-    body.append(div)
-    div.append(h1)
-
-    /*** APP TITLE EVENT LISTENER FOR HOME PAGE */
-
-    h1.addEventListener("click", () => {
-      getRooms()
-      
-      const div = document.querySelector("#app-title-div")
-      div.remove()
-
-      const h1 = document.createElement("h1")
-      h1.setAttribute("id", "home-title")
-      h1.textContent = "HomeStory"
-
-      const nav = document.createElement('nav')
-      nav.setAttribute("id", "rooms-nav")
-
-      body.append(h1)
-      body.append(nav)
-
-
-      h1.addEventListener("click", () => {
-        titlePage()
-      })
-    })
-}
-
 // INITIAL RENDER
-renderAppTitle()
-
-// CLEAR DOM FOR TITLE PAGE
-const titlePage = () => {
-    body.innerHTML = ""
-    renderAppTitle()
-}
+appTitle.renderForTitlePage()
 
 // RENDERED DOM ELEMENTS
 
 /*** APP TITLE DOM ELEMENT */
-const appTitle = document.querySelector('.app-title')
+const title = document.querySelector('.app-title')
 
 
 
