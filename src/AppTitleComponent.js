@@ -13,12 +13,10 @@ class AppTitleComponent {
 
         /*** APP TITLE EVENT LISTENER FOR HOME PAGE */
 
-        h1.addEventListener("click", (event) => {
-        //   getRooms()
-
+        h1.addEventListener("click", () => {
           h1.remove()
-
           appTitle.renderForHomePage()
+          renderRoomsNavForHome()
         })
     }
 
@@ -28,6 +26,13 @@ class AppTitleComponent {
         h1.classList.add("h1-title-home")
 
         titleHomePageDiv.append(h1)
+
+        h1.addEventListener("click", (event) => {
+            h1.remove()
+            roomsHomePageNav.innerHTML = " "
+            roomRoomPageNav.innerHTML = " "
+            appTitle.renderForTitlePage()
+        })
     }
 }
 

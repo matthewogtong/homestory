@@ -1,4 +1,4 @@
-class FurnitureItem {
+class FurnitureComponent {
     constructor(furnitureData) {
         this.furnitureData = furnitureData
     }
@@ -23,7 +23,6 @@ class FurnitureItem {
         h1.textContent = this.furnitureData.name
         h1.classList.add("furniture-item")
 
-    
         divFour.append(h1)
         divThree.append(img)
         divTwo.append(divThree, divFour)
