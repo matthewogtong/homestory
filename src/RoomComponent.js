@@ -34,35 +34,15 @@ class RoomComponent {
         roomRoomPageNav.append(li)
 
         li.addEventListener('click', (event) => {
-            const roomClickedId = event.target.dataset.id
-            console.log(roomClickedId)
+            currentRoomId = parseInt(event.target.dataset.id)
             roomsHomePageNav.innerHTML = " "
             roomRoomPageNav.innerHTML = " "
+            furnitureGridDiv.innerHTML = " "
             renderRoomPageRoomName(event)
             renderRoomsInNav(event)
+            renderRoomFurniture()
         })
     }
 }
 
 
-// HELPER FUNCTIONS
-const renderRoomsInNav = (event) => {
-    const roomClickedId = event.target.dataset.id
-            roomsHomePageNav.innerHTML = " "
-            client.get("/rooms")
-                .then(arrayOfRoomObjs => {
-                    arrayOfRoomObjs.forEach(roomObj => {
-                        if (roomClickedId != roomObj.id) {
-                            const roomComponent = new RoomComponent(roomObj)
-                            roomComponent.renderForRoomPage()
-                        }
-                    })
-                })
-}
-
-const renderRoomPageRoomName = (event) => {
-    roomNameRoomPage.innerHTML = " "
-    const h3 = document.createElement("h3")
-    h3.textContent = event.target.textContent
-    roomNameRoomPage.append(h3)
-}

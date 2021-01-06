@@ -1,3 +1,4 @@
+/* APP TITLE */
 .h1-title-title {
     border: 2px solid black;
     text-align: center;
@@ -5,6 +6,17 @@
     top: 50%;
     left: 50%;
 }
+
+
+
+
+/* ROOM PAGE */
+#furniture-grid-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
 
 
 /* FURNITURE ITEM FLIP CARDS */

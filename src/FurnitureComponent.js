@@ -3,22 +3,20 @@ class FurnitureComponent {
         this.furnitureData = furnitureData
     }
 
-    renderFurnitureItem = () => {
+    renderFurniture = () => {
         const divOne = document.createElement("div")
-        divOne.classList.add("flip-card")
-
         const divTwo = document.createElement("div")
-        divTwo.classList.add("flip-card-inner")
-
         const divThree = document.createElement("div")
+        const divFour = document.createElement("div")
+
+        divOne.classList.add("flip-card")
+        divTwo.classList.add("flip-card-inner")
         divThree.classList.add("flip-card-front")
+        divFour.classList.add("flip-card-back")
 
         const img = document.createElement("img")
         img.src = this.furnitureData.image
         
-        const divFour = document.createElement("div")
-        divFour.classList.add("flip-card-back")
-
         const h1 = document.createElement("h1")
         h1.textContent = this.furnitureData.name
         h1.classList.add("furniture-item")
@@ -27,7 +25,7 @@ class FurnitureComponent {
         divThree.append(img)
         divTwo.append(divThree, divFour)
         divOne.append(divTwo)
-        body.append(divOne)
+        furnitureGridDiv.append(divOne)
      
     }
 
@@ -87,30 +85,8 @@ const renderFurnitureForm = () => {
     </div>
     `
 
-    // RENDER ITEM SECTION
-    const itemMain = document.createElement("main")
-    itemMain.setAttribute("id", "furniture-items-container")
-
     // APPEND ELEMENTS
     body.append(formDiv)
     body.append(itemMain)
-
     
-}
-
-// DOM ELEMENTS FOR FURNITURE ITEMS
-
-
-const addItemForm = document.querySelector("#add-item-form")
-
-// RENDER FURNITURE ITEMS
-const getRoomItems = (roomObj) => {
-    client.get(`/rooms/${roomObj.id}`)
-        .then(roomObj => {
-            const roomItems = roomObj.furnitures
-            roomItems.forEach(item => {
-                const itemCard = new FurnitureItem(item)
-                itemCard.renderFurnitureItem()
-            })
-        })
 }
