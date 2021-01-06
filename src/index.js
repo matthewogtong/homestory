@@ -4,7 +4,7 @@
 // DOM ELEMENTS
 
 const body = document.querySelector('body')
-
+const itemMain = document.querySelector("#furniture-items-container")
 // EVENT HANDLERS
 
 

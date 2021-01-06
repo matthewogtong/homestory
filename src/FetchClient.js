@@ -8,6 +8,18 @@ class FetchClient {
             .then(response => response.json())
     }
 
+    post = (endpoint, dataObj) => {
+        return fetch(this.baseUrl + endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dataObj)
+        })
+        .then(response => response.json())
+    }
+
 }
 
 const baseUrl = "http://localhost:3000"
