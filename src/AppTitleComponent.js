@@ -31,6 +31,7 @@ class AppTitleComponent {
             h1.remove()
             roomsHomePageNav.innerHTML = " "
             roomRoomPageNav.innerHTML = " "
+            roomNameRoomPage.innerHTML = " "
             appTitle.renderForTitlePage()
         })
     }
