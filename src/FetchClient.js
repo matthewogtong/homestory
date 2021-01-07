@@ -17,7 +17,7 @@ class FetchClient {
             },
             body: JSON.stringify(dataObj)
         })
-        .then(response => response.json())
+            .then(response => response.json())
     }
 
 }

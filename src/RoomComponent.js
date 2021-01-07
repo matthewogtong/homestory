@@ -38,9 +38,9 @@ class RoomComponent {
             roomsHomePageNav.innerHTML = " "
             roomRoomPageNav.innerHTML = " "
             furnitureGridDiv.innerHTML = " "
+            addFurnitureButtonDiv.innerHTML = " "
             renderRoomPageRoomName(event)
             renderRoomsInNav(event)
-            renderRoomFurniture()
         })
     }
 }

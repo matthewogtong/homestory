@@ -32,6 +32,8 @@ class AppTitleComponent {
             roomsHomePageNav.innerHTML = " "
             roomRoomPageNav.innerHTML = " "
             roomNameRoomPage.innerHTML = " "
+            furnitureGridDiv.innerHTML = " "
+            addFurnitureButtonDiv.innerHTML = " "
             appTitle.renderForTitlePage()
         })
     }
