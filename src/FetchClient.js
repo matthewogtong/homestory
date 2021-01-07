@@ -13,12 +13,32 @@ class FetchClient {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                Accept: "application/json"
             },
             body: JSON.stringify(dataObj)
         })
             .then(response => response.json())
     }
+
+    patch = (endpoint, dataObj) => {
+        return fetch(this.baseUrl + endpoint, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(dataObj)
+        })
+            .then(response => response.json())
+    }
+
+    delete = (endpoint) => {
+        return fetch(this.baseUrl + endpoint, {
+            method: "DELETE"
+        })
+            .then(response => response.json())
+    }
+    
 
 }
 

@@ -17,11 +17,9 @@ class RoomComponent {
         roomsHomePageNav.append(div)
 
         h2.addEventListener('click', (event) => {
-            // const h3 = document.createElement("h3")
-            // h3.textContent = event.target.textContent
-            // roomNameRoomPage.append(h3)
             renderRoomPageRoomName(event)
             renderRoomsInNav(event)
+            
         })
     }
 

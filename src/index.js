@@ -44,13 +44,13 @@ const renderRoomsInNav = (event) => {
         roomsHomePageNav.innerHTML = " "
         client.get("/rooms")
             .then(arrayOfRoomObjs => {
+                renderFurnitureForm()
                 currentRoomId = parseInt(currentRoomId)
                 arrayOfRoomObjs.forEach(roomObj => {
                     if (currentRoomId != roomObj.id) {
                         const roomComponent = new RoomComponent(roomObj)
                         roomComponent.renderForRoomPage()
                     } else {
-                        renderFurnitureForm()
                         renderRoomFurniture(roomObj)
                     }
                 })
@@ -96,7 +96,7 @@ const renderFurnitureForm = () => {
                         <br>
 
                         <label for="notes">Notes: </label>
-                        <input type="text" name="notes" id="furniture-notes" />
+                        <textarea type="text" name="notes" id="furniture-notes" /></textarea>
                         <br>
                         <br>
 
@@ -127,13 +127,20 @@ const postFurnitureItem = (event) => {
         image: event.target.image.value, 
         url: event.target.url.value, 
         price: event.target.price.value,
-        notes: event.target.notes.value
+        notes: event.target.notes.value,
+        room_id: currentRoomId
     }
 
-
     client.post("/furnitures", newFurnitureObj)
-        .then(console.log)
+        .then(newFurnitureObj => {
+            const furnitureComponent = new FurnitureComponent(newFurnitureObj)
+            furnitureComponent.renderFurniture()
+        })
+    
+    event.target.reset()
 }
+
+    //**UPDATE FURNITURE ITEM FUNCTION */
 
     //**RENDER FURNITURE IN ROOM PAGE */
 const renderRoomFurniture = (roomObj) => {
@@ -141,6 +148,12 @@ const renderRoomFurniture = (roomObj) => {
         const furnitureComponent = new FurnitureComponent(furniture)
         furnitureComponent.renderFurniture()
     })
+}
+
+ //**DELETE FURNITURE ITEM */
+
+const deleteFurnitureObj = (furnitureId) => {
+    client.delete(`/furnitures/${furnitureId}`)
 }
 
 // INITIAL RENDER
