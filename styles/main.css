@@ -16,16 +16,27 @@
 }
 
 /* ROOM PAGE NAV */
+#rooms-room-page-nav {
+  background-color: #a3de83;
+  opacity: 0.6;
+}
 
 .room-name-li {
     display: inline-block;
-    font-size: 30px;
-    font-style: bold;
-    padding: 50px;
-    color: #a3de83;
-    text-align: center ;
-    
-}
+    font-display: center;
+    font-size: 50px;
+    padding: 40px;
+    margin: auto;
+    color: #feffe4;
+  }
+
+  .room-name-title {
+    font-family: 'Handlee', cursive;
+    font-size: 65px;
+    color: #fa4659;
+    opacity: 0.6;
+    text-align: center;
+  }
 
 
 
@@ -70,8 +81,12 @@
   
   /* Style the back side */
   .flip-card-back {
-    background-color: dodgerblue;
-    color: white;
+    /* background-color: dodgerblue; */
+    background-color: white;
+    border: 1px solid #fa4659;
+    opacity: 0.9;
+    color: #fa4659;
+    font-family: 'Handlee', cursive;
     transform: rotateY(180deg);
   }
 

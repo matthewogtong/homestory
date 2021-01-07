@@ -35,7 +35,8 @@ const renderRoomsNavForHome = () => {
 const renderRoomPageRoomName = (event) => {
     roomNameRoomPage.innerHTML = " "
     const h3 = document.createElement("h3")
-    h3.textContent = event.target.textContent
+    h3.textContent = `${event.target.textContent} Inspiration`
+    h3.classList.add("room-name-title")
     roomNameRoomPage.append(h3)
 }
     //** RENDER ROOMS NAV IN ROOM PAGE */
