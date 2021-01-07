@@ -36,7 +36,7 @@ class FurnitureComponent {
                 </div>
                 <div class="price-div">
                     <label for="price" class="form-label">Price</label>
-                    <input type="text" name="price" step="0.01" min=0 class="form-control" value="$ ${this.furnitureData.price}">
+                    <input type="number" name="price" step="0.01" min=0 class="form-control" placeholder="$" value="${this.furnitureData.price}">
                  </div>
                  <div class="notes-div">
                     <label for="notes" class="form-label">Notes</label>
@@ -75,10 +75,10 @@ class FurnitureComponent {
         // UPDATE BUTTON RENDER & EVENT HANDLER
         this.form.addEventListener('submit', (event) => {
             event.preventDefault()
-            const price = event.target.price.value
-            const splitPrice = price.split()
-            const slicedPrice = splitPrice.slice(0)
-            console.log(slicedPrice)
+            // const newPrice = price[0].replace(/\$/g, '')
+            // console.log(newPrice)
+            // const parsedPrice = parseInt(price)
+            // console.log(parsedPrice)
 
             /** EDIT THE PRICE PROPERLY */
             const updatedFurnitureObj = {
@@ -87,6 +87,7 @@ class FurnitureComponent {
                 price: parseInt(event.target.price.value),
                 notes: event.target.notes.value
             }
+            
 
             client.patch(`/furnitures/${event.target.dataset.id}`, updatedFurnitureObj)
                 .then(updatedFurnitureObj => {

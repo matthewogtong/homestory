@@ -91,7 +91,7 @@ const renderFurnitureForm = () => {
                         <br>
                         
                         <label for="price">Price: </label>
-                        <input type="number" name="price" step="0.01" min=0 id="furniture-price" />
+                        <input type="number" name="price" step="0.01" min=0 placeholder="$" id="furniture-price" />
                         <br>
                         <br>
 
@@ -166,7 +166,17 @@ appTitle.renderForTitlePage()
 /*** APP TITLE DOM ELEMENT */
 const title = document.querySelector('.app-title')
 
+//**Animation test */
 
-
+const animateTitle = () => {
+    anime({
+      targets: ".h1-title-title",
+      left: "240px",
+      backgroundColor: "#FFF",
+      borderRadius: ["0%", "50%"],
+      easing: "easeInOutQuad",
+    });
+}
+animateTitle()
 
 
