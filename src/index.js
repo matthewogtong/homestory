@@ -62,7 +62,7 @@ const renderFurnitureForm = () => {
     const formDiv = document.createElement("div")
     formDiv.setAttribute("id", "modal-div-container")
     formDiv.innerHTML = `
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" id="add-furniture-button-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add an Item
     </button>
 
@@ -102,7 +102,6 @@ const renderFurnitureForm = () => {
                         <br>
 
                         <input type="submit" value="Add Furniture" />
-                        <br>
                     </form>
                 </div>
                 <div class="modal-footer">

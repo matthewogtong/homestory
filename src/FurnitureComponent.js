@@ -42,14 +42,17 @@ class FurnitureComponent {
                     <label for="notes" class="form-label">Notes</label>
                     <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submit-button-color" class="btn btn-primary">Submit</button>
+                <br>
+                <br>
+                <br>
             </form>
         `;
         
         // ROOM INFORMATION H6
-        const h6 = document.createElement("h6")
-        h6.textContent = "Item Info"
-        h6.classList.add("furniture-item")
+        const h5 = document.createElement("h5")
+        h5.textContent = "Item Details"
+        h5.classList.add("furniture-item")
         
         // DELETE BUTTON RENDER & EVENT HANDLER
         const deleteButton = document.createElement("button")
@@ -65,7 +68,7 @@ class FurnitureComponent {
         })
         
         // APPEND TO DOM
-        divFive.append(h6, this.form, deleteButton)
+        divFive.append(h5, this.form, deleteButton)
         divFour.append(divFive)
         divThree.append(img)
         divTwo.append(divThree, divFour)

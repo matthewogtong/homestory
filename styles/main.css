@@ -12,29 +12,34 @@
 /* ROOM PAGE */
 #furniture-grid-div {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 40px;
 }
 
 /* ROOM PAGE NAV */
 #rooms-room-page-nav {
-  background-color: #a3de83;
-  opacity: 0.6;
+  background-color: #bbded6;
 }
 
 .room-name-li {
+    font-family: 'Architects Daughter', cursive;
     display: inline-block;
     font-display: center;
-    font-size: 50px;
-    padding: 40px;
+    font-size: 40px;
+    padding: 15px 30px;
     margin: auto;
-    color: #feffe4;
+    color: white;
+  }
+
+  .room-name-li:hover {
+    font-size: 70px;
   }
 
   .room-name-title {
     font-family: 'Handlee', cursive;
-    font-size: 65px;
-    color: #fa4659;
-    opacity: 0.6;
+    font-size: 40px;
+    color: #ffb6b9;
+    /* opacity: 0.6; */
     text-align: center;
   }
 
@@ -44,8 +49,8 @@
 .flip-card {
     background-color: transparent;
     width: 430px;
-    height: 430px;
-    border: 1px solid #f1f1f1;
+    height: 470px;
+    border: 2px solid black;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
   
@@ -81,11 +86,11 @@
   
   /* Style the back side */
   .flip-card-back {
-    /* background-color: dodgerblue; */
-    background-color: white;
-    border: 1px solid #fa4659;
+    background-color: #fae3d9;
+    border-radius: 15px;
+    font-size: 20px;
     opacity: 0.9;
-    color: #fa4659;
+    color:rgb(40, 38, 38);
     font-family: 'Handlee', cursive;
     transform: rotateY(180deg);
   }
@@ -94,4 +99,19 @@
       width: 100%;
       height: 100%;
   }
+
+  /* STYLE ADD AN ITEM/FURNITURE BUTTON */
+#add-furniture-button-color {
+  background-color: #61c0bf;
+  border-color: #61c0bf;
+  width: 50%;
+}
+
+/* STYLE UPDATE FURNITURE SUBMIT BUTTON */
+
+#submit-button-color {
+  background-color: #61c0bf;
+  border-color: #61c0bf;
+}
+
 
