@@ -76,27 +76,32 @@ const renderFurnitureForm = () => {
                 <div class="modal-body">
                     <form id="add-furniture-form" autocomplete="off">
                         <h5> Item Details</h5>
-                        <label for="name">Furniture Name: </label>
+                        <label for="name">Name</label>
+                        <br>
                         <input type="text" name="name" id="furniture-name" />
                         <br>
                         <br>
 
-                        <label for="image">Image: </label>
+                        <label for="image">Image</label>
+                        <br>
                         <input type="text" name="image" id="image-url" />
                         <br>
                         <br>
 
-                        <label for="url">Website: </label>
+                        <label for="url">Website</label>
+                        <br>
                         <input type="text" name="url" id="website-name" />
                         <br>
                         <br>
                         
-                        <label for="price">Price: </label>
+                        <label for="price">Price</label>
+                        <br>
                         <input type="number" name="price" step="0.01" min=0 placeholder="$" id="furniture-price" />
                         <br>
                         <br>
 
-                        <label for="notes">Notes: </label>
+                        <label for="notes">Notes</label>
+                        <br>
                         <textarea type="text" name="notes" id="furniture-notes" /></textarea>
                         <br>
                         <br>
