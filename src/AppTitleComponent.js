@@ -11,11 +11,14 @@ class AppTitleComponent {
         const img = document.createElement("img")
         img.classList.add("title-img")
         img.src = "imgs/jason-briscoe-UV81E0oXXWQ-unsplash.jpg"
-
+        
         titlePageTitleDiv.append(h1)
         titleImgHolder.append(img)
 
-        renderUserForm()
+        if (!loggedIn) {
+            renderUserForm()
+        }
+        // renderSignUpForm()
 
         /*** APP TITLE EVENT LISTENER FOR HOME PAGE */
         h1.addEventListener("mouseover", event => {
@@ -29,7 +32,11 @@ class AppTitleComponent {
         h1.addEventListener("click", () => {
           h1.remove()
           titleFormHolder.innerHTML = ""
+          titleErrorMessage.innerHTML = ""
+          titleUserNameHolder.innerHTML = ""
+          titleLogOutHolder.innerHTML = " "
           appTitle.renderForHomePage()
+          displayLoggedInUserHomePage()
           renderRoomsNavForHome()
         })
 
@@ -50,8 +57,12 @@ class AppTitleComponent {
             roomNameRoomPage.innerHTML = " "
             furnitureGridDiv.innerHTML = " "
             addFurnitureButtonDiv.innerHTML = " "
+            homeUserNameHolder.innerHTML = " "
+            titleLogOutHolder.innerHTML = " "
             appTitle.renderForTitlePage()
             animateTitle()
+            displayLoggedInUserTitlePage()
+            displayLogOutTitlePage()
         })
     }
 }

@@ -28,6 +28,23 @@
   left: 17%;
 }
 
+#title-error-message {
+  position: absolute;
+  top: 55%;
+  left: 17%;
+}
+
+#title-error-message h5 {
+  font-family: 'Architects Daughter', cursive;
+  color: red;
+}
+
+#title-logout-holder {
+  position: absolute;
+  top: 65%;
+  left: 17%;
+}
+
 
 /* HOME PAGE */
 .h1-title-home {
@@ -50,6 +67,19 @@
 .room-name-h2:hover {
   color: #3EB489;
   transition: .2s;
+}
+
+.home-username {
+  font-family: "Montserrat";
+  font-size: 100%;
+}
+
+.title-username {
+  font-family: "Montserrat";
+  font-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 17%;
 }
 
 /* ROOM PAGE */

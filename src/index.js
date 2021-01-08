@@ -1,16 +1,23 @@
 // STATE VARIABLES
 let currentRoomId = 0
+let currentUser = 0
+let currentUsername = ""
+let loggedIn = false
 
 // DOM ELEMENTS FOR TITLE PAGE
 const titlePageTitleDiv = document.querySelector('#title-title-div')
 const titleHomePageDiv = document.querySelector('#title-home-page-div')
 const titleImgHolder = document.querySelector('#title-img-holder')
 const titleFormHolder = document.querySelector('#title-form-holder')
+const titleErrorMessage = document.querySelector('#title-error-message')
+const titleUserNameHolder = document.querySelector('#title-username-holder')
+const titleLogOutHolder = document.querySelector('#title-logout-holder')
 
 // DOM ELEMENTS FOR HOME PAGE
 const roomsHomePageNav = document.querySelector('#rooms-home-page-nav')
 const roomNameDiv = document.querySelector('.room-name-div')
 const roomNameLi = document.querySelector('.room-name-li')
+const homeUserNameHolder = document.querySelector('#home-username-holder')
 
 // DOM ELEMENTS FOR ROOM PAGE
 const roomRoomPageNav = document.querySelector('#rooms-room-page-nav')
@@ -25,6 +32,113 @@ const furnitureGridDiv = document.querySelector('#furniture-grid-div')
 
     //** RENDER USER LOGIN FORM IN TITLE PAGE */
 const renderUserForm = () => {
+        titleLogOutHolder.innerHTML = " "
+        const form = document.createElement("form")
+        form.classList.add("row", "g-3")
+
+        const divUserInput = document.createElement("div")
+        divUserInput.classList.add("col-auto")
+
+        const inputLabel = document.createElement("label")
+        inputLabel.setAttribute("for", "username")
+        inputLabel.setAttribute("class", "visually-hidden")
+
+        const usernameInput = document.createElement("input")
+        usernameInput.setAttribute("type", "username")
+        usernameInput.setAttribute("name", "username")
+        usernameInput.classList.add("form-control")
+        usernameInput.setAttribute("id", "usernameInput")
+        usernameInput.setAttribute("placeholder", "Username")
+
+        const divSubmit = document.createElement("div")
+        divSubmit.classList.add("col-auto")
+
+        const button = document.createElement("button")
+        button.setAttribute("type", "submit")
+        button.classList.add("btn", "btn-primary", "mb-3")
+        button.textContent = "Login ~"
+
+        divUserInput.append(inputLabel, usernameInput)
+        divSubmit.append(button)
+        form.append(divUserInput, divSubmit)
+        titleFormHolder.append(form)
+
+        //** EVENT HANDLING USER LOGIN FORM */
+        form.addEventListener("submit", event => {
+            event.preventDefault()
+            titleErrorMessage.innerHTML = ""
+            const userInput = event.target.username.value
+            
+            client.get("/users").then((usersArray) => {
+            usersArray.forEach((user) => {
+                if (user.username === userInput) {
+                currentUser = user.id
+                currentUsername = user.username
+                loggedIn = true
+                titleErrorMessage.innerHTML = ""
+                displayLoggedInUserHomePage()
+                appTitle.renderForHomePage()
+                return renderRoomsNavForHome()
+                }
+            })
+            const userList = []
+            usersArray.forEach((user) => {
+                userList.push(user.username)
+            })
+
+            if(userList.includes(userInput) === false ) {
+                const errorMessage = document.createElement("h5")
+                errorMessage.textContent = "Invalid Username"
+                titleErrorMessage.append(errorMessage)
+            }
+            })
+        }) 
+}
+
+const displayLoggedInUserHomePage = () => {
+    if (loggedIn) {
+        titlePageTitleDiv.innerHTML = ""
+        titleFormHolder.innerHTML = ""
+        const h3 = document.createElement("h3")
+        h3.textContent = `Currently logged in as: ${currentUsername}`
+        h3.classList.add("home-username")
+        homeUserNameHolder.append(h3)
+    }
+}
+
+const displayLoggedInUserTitlePage = () => {
+    if (loggedIn) {
+        const h3 = document.createElement("h3")
+        h3.textContent = `Currently logged in as: ${currentUsername}`
+        h3.classList.add("title-username")
+        titleUserNameHolder.append(h3)
+    }
+}
+
+/** LOG OUT */
+const logOut = () => {
+    loggedIn = false
+    currentUser = 0
+    renderUserForm()
+    titleUserNameHolder.innerHTML = ""
+}
+
+const displayLogOutTitlePage = () => {
+    if (loggedIn) {
+    const button = document.createElement("button")
+    button.classList.add("btn", "btn-warning")
+    button.textContent = "Logout"
+    titleLogOutHolder.append(button)
+    titleFormHolder.innerHTML = ""
+
+    button.addEventListener('click', logOut)
+}
+
+
+    
+
+}
+const renderSignUpForm = () => {
     const form = document.createElement("form")
     form.classList.add("row", "g-3")
 
@@ -37,6 +151,7 @@ const renderUserForm = () => {
 
     const usernameInput = document.createElement("input")
     usernameInput.setAttribute("type", "username")
+    usernameInput.setAttribute("name", "username")
     usernameInput.classList.add("form-control")
     usernameInput.setAttribute("id", "usernameInput")
     usernameInput.setAttribute("placeholder", "Username")
@@ -47,13 +162,48 @@ const renderUserForm = () => {
     const button = document.createElement("button")
     button.setAttribute("type", "submit")
     button.classList.add("btn", "btn-primary", "mb-3")
-    button.textContent = "Begin ~"
+    button.textContent = "Create New User ~"
 
     divUserInput.append(inputLabel, usernameInput)
     divSubmit.append(button)
     form.append(divUserInput, divSubmit)
     titleFormHolder.append(form)
+
+    /** EVENT HANDLING USER CREATE FORM */
+    // form.addEventListener("submit", event => {
+    //     event.preventDefault();
+    //     titleErrorMessage.innerHTML = ""
+    //     const userInput = event.target.username.value
+
+    //     client.get("/users").then((usersArray) => {
+    //       usersArray.pluck(:username)
+
+        //     if (user.username != userInput) {
+        //       currentUser = user.id
+        //       currentUsername = user.username
+
+        //       const userObj = {
+        //         username: userInput
+        //       }
+
+        //       titlePageTitleDiv.innerHTML = ""
+        //       titleFormHolder.innerHTML = ""
+        //       appTitle.renderForHomePage()
+        //       renderRoomsNavForHome()
+    
+        //       client.post("/users", userObj)
+        //         .then(console.log)
+            
+        //     } else {
+        //       const errorMessage = document.createElement("h5")
+        //       errorMessage.textContent = "Username has been taken"
+        //       titleErrorMessage.append(errorMessage)
+        //     }
+        //   })
+    //     })
+    // })
 }
+
 
     //** RENDER ROOMS NAV IN HOME PAGE*/
 const renderRoomsNavForHome = () => {
@@ -222,7 +372,7 @@ const animateTitle = () => {
 const animateMouseOverTitleComponentTitlePage = () => {
     anime({
         targets: ".h1-title-title",
-        left: '200px',
+        left: '220px',
         backgroundColor: '#FFF',
         borderRadius: ['25%', '100%'],
         easing: 'easeInOutQuad'
