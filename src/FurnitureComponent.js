@@ -28,7 +28,7 @@ class FurnitureComponent {
             <form>
                 <div class="name-div">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" value=${this.furnitureData.name}>
+                    <input type="text" name="name" class="form-control" value="${this.furnitureData.name}">
                 </div>
                 <div class="url-div">
                     <label for="url" class="form-label">Website</label>
@@ -77,8 +77,10 @@ class FurnitureComponent {
         // UPDATE BUTTON RENDER & EVENT HANDLER
         this.form.addEventListener('submit', (event) => {
             event.preventDefault()
-            // const newPrice = price[0].replace(/\$/g, '')
-            // console.log(newPrice)
+            const newPrice = event.target.price.value
+            const removeDollarSign = newPrice[0].replace(/\$/g, '')
+            console.log(newPrice)
+            console.log(removeDollarSign)
             // const parsedPrice = parseInt(price)
             // console.log(parsedPrice)
 
@@ -106,7 +108,7 @@ class FurnitureComponent {
         <form>
             <div class="name-div">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" value=${this.furnitureData.name}>
+                <input type="text" name="name" class="form-control" value="${this.furnitureData.name}">
             </div>
             <div class="url-div">
                 <label for="url" class="form-label">Website</label>
@@ -120,7 +122,7 @@ class FurnitureComponent {
                 <label for="notes" class="form-label">Notes</label>
                 <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="submit-button-color-after" class="btn btn-primary">Updated Successfully!</button>
         </form>
     `;
     }

@@ -140,6 +140,10 @@
   border-color: #61c0bf;
 }
 
+#submit-button-color-after {
+  background-color: #ffb6b9;
+  border-color: #ffb6b9;
+}
 
 
 /* STYLE MODAL FURNITURE FORM  */
@@ -160,4 +164,14 @@
   color: white;
   border-color: #61c0bf;
   border-radius: 5px;
+}
+
+/* STYLE BORDER COLOR IN MODAL */
+
+input {
+  border-color: white;
+}
+
+#furniture-notes {
+  border-color: white;
 }
