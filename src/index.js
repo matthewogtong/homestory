@@ -4,6 +4,8 @@ let currentRoomId = 0
 // DOM ELEMENTS FOR TITLE PAGE
 const titlePageTitleDiv = document.querySelector('#title-title-div')
 const titleHomePageDiv = document.querySelector('#title-home-page-div')
+const titleImgHolder = document.querySelector('#title-img-holder')
+const titleFormHolder = document.querySelector('#title-form-holder')
 
 // DOM ELEMENTS FOR HOME PAGE
 const roomsHomePageNav = document.querySelector('#rooms-home-page-nav')
@@ -20,6 +22,39 @@ const furnitureGridDiv = document.querySelector('#furniture-grid-div')
 
 
 // RENDER FUNCTIONS
+
+    //** RENDER USER LOGIN FORM IN TITLE PAGE */
+const renderUserForm = () => {
+    const form = document.createElement("form")
+    form.classList.add("row", "g-3")
+
+    const divUserInput = document.createElement("div")
+    divUserInput.classList.add("col-auto")
+
+    const inputLabel = document.createElement("label")
+    inputLabel.setAttribute("for", "username")
+    inputLabel.setAttribute("class", "visually-hidden")
+
+    const usernameInput = document.createElement("input")
+    usernameInput.setAttribute("type", "username")
+    usernameInput.classList.add("form-control")
+    usernameInput.setAttribute("id", "usernameInput")
+    usernameInput.setAttribute("placeholder", "Username")
+
+    const divSubmit = document.createElement("div")
+    divSubmit.classList.add("col-auto")
+
+    const button = document.createElement("button")
+    button.setAttribute("type", "submit")
+    button.classList.add("btn", "btn-primary", "mb-3")
+    button.textContent = "Begin ~"
+
+    divUserInput.append(inputLabel, usernameInput)
+    divSubmit.append(button)
+    form.append(divUserInput, divSubmit)
+    titleFormHolder.append(form)
+}
+
     //** RENDER ROOMS NAV IN HOME PAGE*/
 const renderRoomsNavForHome = () => {
     client.get("/rooms")
@@ -177,11 +212,21 @@ const title = document.querySelector('.app-title')
 const animateTitle = () => {
     anime({
       targets: ".h1-title-title",
-      left: "240px",
-      backgroundColor: "#FFF",
-      borderRadius: ["0%", "50%"],
+      left: "150px",
+      backgroundColor: "#fae3d9",
+      borderRadius: ["75%", "100%"],
       easing: "easeInOutQuad",
     });
+}
+
+const animateMouseOverTitleComponentTitlePage = () => {
+    anime({
+        targets: ".h1-title-title",
+        left: '200px',
+        backgroundColor: '#FFF',
+        borderRadius: ['25%', '100%'],
+        easing: 'easeInOutQuad'
+      });
 }
 
 // HOME PAGE ANIMATIONS
@@ -196,7 +241,7 @@ const animateMouseOverRoomComponentRoomPage = (roomDataId) => {
     anime({
         targets: `.room-id-${roomDataId}`,
         translateX: 250,
-        duration: 3000
+        duration: 800
       });
 }
 
@@ -204,7 +249,7 @@ const animateMouseOutRoomComponentRoomPage = (roomDataId) => {
     anime({
         targets: `.room-id-${roomDataId}`,
         translateX: 20,
-        duration: 3000,
+        duration: 800
       });
 }
 // INITIAL ANIMATION

@@ -1,29 +1,55 @@
 /* APP TITLE */
 .h1-title-title {
   font-family: 'Handlee', cursive;
-  font-size: 100px;
-  border: 2px solid black;
+  font-size: 110px;
   text-align: center;
   position: absolute;
   left: 50%;
   top: 20%;
 }
 
+.h1-title-title:hover {
+  background-image: linear-gradient(to left, #ffffff, #3EB489);
+}
+
+.title-img {
+  display: block;
+  margin-left: auto;
+  width: 50%;
+  border: 5px solid;
+  position: absolute;
+  right: 0%;
+
+}
+
+#title-form-holder {
+  position: absolute;
+  top: 60%;
+  left: 17%;
+}
+
+
+/* HOME PAGE */
 .h1-title-home {
   font-family: 'Handlee', cursive;
   font-size: 80px;
-  border: 2px solid black;
-  text-align: center;
+  text-align: left;
+  background-image: linear-gradient(to left, #ffffff, #fae3d9)
+}
+
+.h1-title-home:hover {
+  background-image: linear-gradient(to left, #ffffff, #3EB489);
 }
 
 .room-name-h2 {
   font-family: 'Architects Daughter', cursive;
-  font-size: 100px
+  font-size: 590%;
+  margin-top: 3%;
 }
 
 .room-name-h2:hover {
-  /* color: red; */
-  background-image: linear-gradient(#4FFFB0, #50C878);
+  color: #3EB489;
+  transition: .2s;
 }
 
 /* ROOM PAGE */

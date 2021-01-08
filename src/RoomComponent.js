@@ -21,14 +21,13 @@ class RoomComponent {
        // animateHomePageRooms()
 
         h2.addEventListener('mouseover', event => {
-            console.log('mouseover')
             animateMouseOverRoomComponentRoomPage(this.roomData.id)
         })
         h2.addEventListener('mouseout', event => {
-            console.log('mouseout')
             animateMouseOutRoomComponentRoomPage(this.roomData.id)
         })
         h2.addEventListener('click', (event) => {
+            titleImgHolder.innerHTML = ""
             renderRoomPageRoomName(event)
             renderRoomsInNav(event)
             
