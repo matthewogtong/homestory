@@ -1,13 +1,30 @@
 /* APP TITLE */
 .h1-title-title {
-    display: flex;
-    justify-content: center;
-    font-family: 'Handlee', cursive;
-    font-size: 80px;
-    border: 2px solid black;
+  font-family: 'Handlee', cursive;
+  font-size: 100px;
+  border: 2px solid black;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 20%;
 }
 
+.h1-title-home {
+  font-family: 'Handlee', cursive;
+  font-size: 80px;
+  border: 2px solid black;
+  text-align: center;
+}
 
+.room-name-h2 {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 100px
+}
+
+.room-name-h2:hover {
+  /* color: red; */
+  background-image: linear-gradient(#4FFFB0, #50C878);
+}
 
 /* ROOM PAGE */
 #furniture-grid-div {

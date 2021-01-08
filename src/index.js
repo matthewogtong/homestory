@@ -166,8 +166,9 @@ appTitle.renderForTitlePage()
 /*** APP TITLE DOM ELEMENT */
 const title = document.querySelector('.app-title')
 
-//**Animation test */
+//**Animations */
 
+// TITLE PAGE ANIMATIONS
 const animateTitle = () => {
     anime({
       targets: ".h1-title-title",
@@ -177,6 +178,31 @@ const animateTitle = () => {
       easing: "easeInOutQuad",
     });
 }
+
+// HOME PAGE ANIMATIONS
+const animateHomePageRooms = () => {
+    anime({
+    targets: ".room-name-h2",
+    translateX: 100,
+    });
+}
+
+const animateMouseOverRoomComponentRoomPage = (roomDataId) => {
+    anime({
+        targets: `.room-id-${roomDataId}`,
+        translateX: 250,
+        duration: 3000
+      });
+}
+
+const animateMouseOutRoomComponentRoomPage = (roomDataId) => {
+    anime({
+        targets: `.room-id-${roomDataId}`,
+        translateX: 20,
+        duration: 3000,
+      });
+}
+// INITIAL ANIMATION
 animateTitle()
 
 

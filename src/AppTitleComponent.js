@@ -35,6 +35,7 @@ class AppTitleComponent {
             furnitureGridDiv.innerHTML = " "
             addFurnitureButtonDiv.innerHTML = " "
             appTitle.renderForTitlePage()
+            animateTitle()
         })
     }
 }

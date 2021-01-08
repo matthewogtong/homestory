@@ -12,10 +12,22 @@ class RoomComponent {
         h2.textContent = this.roomData.name
         h2.dataset.id = this.roomData.id
         h2.classList.add("room-name-h2")
+        h2.classList.add(`room-id-${this.roomData.id}`)
         
         div.append(h2)
         roomsHomePageNav.append(div)
 
+
+       // animateHomePageRooms()
+
+        h2.addEventListener('mouseover', event => {
+            console.log('mouseover')
+            animateMouseOverRoomComponentRoomPage(this.roomData.id)
+        })
+        h2.addEventListener('mouseout', event => {
+            console.log('mouseout')
+            animateMouseOutRoomComponentRoomPage(this.roomData.id)
+        })
         h2.addEventListener('click', (event) => {
             renderRoomPageRoomName(event)
             renderRoomsInNav(event)
