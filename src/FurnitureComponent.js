@@ -26,25 +26,25 @@ class FurnitureComponent {
         this.form.dataset.id = this.furnitureData.id
         this.form.innerHTML = `
             <form>
-                <div class="name-div">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" value=${this.furnitureData.name}>
-                </div>
-                <div class="url-div">
-                    <label for="url" class="form-label">Website</label>
-                    <input type="text" name="url" class="form-control" value=${this.furnitureData.url}>
-                </div>
-                <div class="price-div">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" name="price" step="0.01" min=0 class="form-control" placeholder="$" value="${this.furnitureData.price}">
-                 </div>
-                 <div class="notes-div">
-                    <label for="notes" class="form-label">Notes</label>
-                    <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
-                </div>
-                <button type="submit" id="submit-button-color" class="btn btn-primary">Update</button>
-                <br>
-                <br>
+                    <div class="name-div">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" value=${this.furnitureData.name}>
+                    </div>
+                    <div class="url-div">
+                        <label for="url" class="form-label">Website</label>
+                        <input type="text" name="url" class="form-control" value=${this.furnitureData.url}>
+                    </div>
+                    <div class="price-div">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="price" step="0.01" min=0 class="form-control" placeholder="$" value="${this.furnitureData.price}">
+                    </div>
+                    <div class="notes-div">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
+                    </div>
+                    <button type="submit" id="submit-button-color" class="btn btn-primary">Update</button>
+                    <br>
+                    <br>
             </form>
         `;
         
@@ -77,10 +77,6 @@ class FurnitureComponent {
         // UPDATE BUTTON RENDER & EVENT HANDLER
         this.form.addEventListener('submit', (event) => {
             event.preventDefault()
-            // const newPrice = price[0].replace(/\$/g, '')
-            // console.log(newPrice)
-            // const parsedPrice = parseInt(price)
-            // console.log(parsedPrice)
 
             /** EDIT THE PRICE PROPERLY */
             const updatedFurnitureObj = {
