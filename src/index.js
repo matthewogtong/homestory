@@ -63,19 +63,19 @@ const renderFurnitureForm = () => {
     formDiv.setAttribute("id", "modal-div-container")
     formDiv.innerHTML = `
     <button type="button" class="btn btn-primary" id="add-furniture-button-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Add an Item
+        Add a Furniture Item
     </button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content-background-color">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Furniture Details</h5>
+                    <h4 class="modal-title" id="modal-label-title">Add Item</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="add-furniture-form" autocomplete="off">
-                        <h4>Add Item</h4>
+                        <h5> Item Details</h5>
                         <label for="name">Furniture Name: </label>
                         <input type="text" name="name" id="furniture-name" />
                         <br>
@@ -101,7 +101,7 @@ const renderFurnitureForm = () => {
                         <br>
                         <br>
 
-                        <input type="submit" value="Add Furniture" />
+                        <input type="submit" id="modal-submit-furniture" value="Add Furniture" />
                     </form>
                 </div>
                 <div class="modal-footer">

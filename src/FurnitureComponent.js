@@ -42,8 +42,7 @@ class FurnitureComponent {
                     <label for="notes" class="form-label">Notes</label>
                     <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
                 </div>
-                <button type="submit" id="submit-button-color" class="btn btn-primary">Submit</button>
-                <br>
+                <button type="submit" id="submit-button-color" class="btn btn-primary">Update</button>
                 <br>
                 <br>
             </form>
