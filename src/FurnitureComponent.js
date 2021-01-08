@@ -21,10 +21,10 @@ class FurnitureComponent {
         img.alt = this.furnitureData.name
         
         // BACK OF FURNITURE CARD
-        this.form = document.createElement("form")
-        this.form.setAttribute("id", "edit-form")
-        this.form.dataset.id = this.furnitureData.id
-        this.form.innerHTML = `
+        const form = document.createElement("form")
+        form.setAttribute("id", "edit-form")
+        form.dataset.id = this.furnitureData.id
+        form.innerHTML = `
             <form>
                 <div class="name-div">
                     <label for="name" class="form-label">Name</label>
@@ -67,7 +67,7 @@ class FurnitureComponent {
         })
         
         // APPEND TO DOM
-        divFive.append(h5, this.form, deleteButton)
+        divFive.append(h5, form, deleteButton)
         divFour.append(divFive)
         divThree.append(img)
         divTwo.append(divThree, divFour)
@@ -75,14 +75,8 @@ class FurnitureComponent {
         furnitureGridDiv.append(divOne)
 
         // UPDATE BUTTON RENDER & EVENT HANDLER
-        this.form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', (event) => {
             event.preventDefault()
-            const newPrice = event.target.price.value
-            const removeDollarSign = newPrice[0].replace(/\$/g, '')
-            console.log(newPrice)
-            console.log(removeDollarSign)
-            // const parsedPrice = parseInt(price)
-            // console.log(parsedPrice)
 
             /** EDIT THE PRICE PROPERLY */
             const updatedFurnitureObj = {
@@ -91,40 +85,32 @@ class FurnitureComponent {
                 price: parseInt(event.target.price.value),
                 notes: event.target.notes.value
             }
-            
 
             client.patch(`/furnitures/${event.target.dataset.id}`, updatedFurnitureObj)
-                .then(updatedFurnitureObj => {
-                    const updatedObj = new FurnitureComponent(updatedFurnitureObj)
-                    updatedObj.renderUpdatedFurnitureComponent()
-                })
+
+                .then(form.innerHTML = `
+                    <form>
+                        <div class="name-div">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" value="${event.target.name.value}">
+                        </div>
+                        <div class="url-div">
+                            <label for="url" class="form-label">Website</label>
+                            <input type="text" name="url" class="form-control" value=${event.target.url.value}>
+                        </div>
+                        <div class="price-div">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="text" name="price" step="0.01" min=0 class="form-control" value="${event.target.price.value}">
+                        </div>
+                        <div class="notes-div">
+                            <label for="notes" class="form-label">Notes</label>
+                            <textarea name="notes" class="form-control">${event.target.notes.value}</textarea>
+                        </div>
+                        <button type="submit" id="submit-button-color-after" class="btn btn-primary">Updated Successfully!</button>
+                    </form>
+                `)
         })
      
-    }
-
-    renderUpdatedFurnitureComponent = () => {
-        const form = document.querySelector('#edit-form')
-        form.innerHTML = `
-        <form>
-            <div class="name-div">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" value="${this.furnitureData.name}">
-            </div>
-            <div class="url-div">
-                <label for="url" class="form-label">Website</label>
-                <input type="text" name="url" class="form-control" value=${this.furnitureData.url}>
-            </div>
-            <div class="price-div">
-                <label for="price" class="form-label">Price</label>
-                <input type="text" name="price" step="0.01" min=0 class="form-control" value="$ ${this.furnitureData.price}">
-             </div>
-             <div class="notes-div">
-                <label for="notes" class="form-label">Notes</label>
-                <textarea name="notes" class="form-control">${this.furnitureData.notes}</textarea>
-            </div>
-            <button type="submit" id="submit-button-color-after" class="btn btn-primary">Updated Successfully!</button>
-        </form>
-    `;
     }
 }
 
