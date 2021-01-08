@@ -210,8 +210,10 @@ const renderRoomsNavForHome = () => {
     client.get("/rooms")
         .then(roomsArray => {
             roomsArray.forEach(room => {
-                const roomComponent = new RoomComponent(room)
-                roomComponent.renderForHomePage()
+                if (room.user.id === currentUser) {
+                    const roomComponent = new RoomComponent(room)
+                    roomComponent.renderForHomePage()
+                }
             })
         })
 }
@@ -228,17 +230,22 @@ const renderRoomPageRoomName = (event) => {
 const renderRoomsInNav = (event) => {
         currentRoomId = parseInt(event.target.dataset.id)
         roomsHomePageNav.innerHTML = " "
-        client.get("/rooms")
-            .then(arrayOfRoomObjs => {
+        client.get(`/users/${currentUser}`)
+            .then(userInfo => {
+                const userRooms = userInfo.rooms
                 renderFurnitureForm()
-                currentRoomId = parseInt(currentRoomId)
-                arrayOfRoomObjs.forEach(roomObj => {
-                    if (currentRoomId != roomObj.id) {
-                        const roomComponent = new RoomComponent(roomObj)
+                userRooms.forEach(room => {
+                    currentRoomId = parseInt(currentRoomId)
+                        const roomComponent = new RoomComponent(room)
                         roomComponent.renderForRoomPage()
-                    } else {
-                        renderRoomFurniture(roomObj)
-                    }
+                })
+            })
+        client.get(`/rooms/${currentRoomId}`)
+            .then(roomObj => {
+                const roomFurnitures = roomObj.furnitures
+                roomFurnitures.forEach(furnitureObj => {
+                    const furnitureComponent = new FurnitureComponent(furnitureObj)
+                    furnitureComponent.renderFurniture()
                 })
             })
 }
@@ -333,12 +340,12 @@ const postFurnitureItem = (event) => {
     //**UPDATE FURNITURE ITEM FUNCTION */
 
     //**RENDER FURNITURE IN ROOM PAGE */
-const renderRoomFurniture = (roomObj) => {
-    roomObj.furnitures.forEach(furniture => {
-        const furnitureComponent = new FurnitureComponent(furniture)
-        furnitureComponent.renderFurniture()
-    })
-}
+// const renderRoomFurniture = (roomObj) => {
+//     roomObj.furnitures.forEach(furniture => {
+//         const furnitureComponent = new FurnitureComponent(furniture)
+//         furnitureComponent.renderFurniture()
+//     })
+// }
 
  //**DELETE FURNITURE ITEM */
 
