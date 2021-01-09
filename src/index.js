@@ -337,16 +337,6 @@ const postFurnitureItem = (event) => {
     event.target.reset()
 }
 
-    //**UPDATE FURNITURE ITEM FUNCTION */
-
-    //**RENDER FURNITURE IN ROOM PAGE */
-// const renderRoomFurniture = (roomObj) => {
-//     roomObj.furnitures.forEach(furniture => {
-//         const furnitureComponent = new FurnitureComponent(furniture)
-//         furnitureComponent.renderFurniture()
-//     })
-// }
-
  //**DELETE FURNITURE ITEM */
 
 const deleteFurnitureObj = (furnitureId) => {
@@ -356,14 +346,11 @@ const deleteFurnitureObj = (furnitureId) => {
 // INITIAL RENDER
 appTitle.renderForTitlePage()
 
-// RENDERED DOM ELEMENTS
-
-// EVENT HANDLERS
 
 /*** APP TITLE DOM ELEMENT */
 const title = document.querySelector('.app-title')
 
-//**Animations */
+//**ANIMATIONS */
 
 // TITLE PAGE ANIMATIONS
 const animateTitle = () => {
