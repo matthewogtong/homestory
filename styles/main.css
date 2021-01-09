@@ -39,6 +39,19 @@
   color: red;
 }
 
+#title-signup-error-message {
+  position: absolute;
+  top: 55%;
+  left: 17%;
+}
+
+#title-signup-error-message h5 {
+  font-family: 'Architects Daughter', cursive;
+  color: red;
+}
+
+
+
 #title-logout-holder {
   position: absolute;
   top: 65%;

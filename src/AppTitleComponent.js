@@ -17,8 +17,8 @@ class AppTitleComponent {
 
         if (!loggedIn) {
             renderUserForm()
-        }
-        // renderSignUpForm()
+            renderSignUpForm()
+        } 
 
         /*** APP TITLE EVENT LISTENER FOR HOME PAGE */
         h1.addEventListener("mouseover", event => {
@@ -33,6 +33,7 @@ class AppTitleComponent {
           h1.remove()
           titleFormHolder.innerHTML = ""
           titleErrorMessage.innerHTML = ""
+          titleSignUpErrorMessage.innerHTML = ""
           titleUserNameHolder.innerHTML = ""
           titleLogOutHolder.innerHTML = " "
           appTitle.renderForHomePage()

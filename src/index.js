@@ -10,6 +10,7 @@ const titleHomePageDiv = document.querySelector('#title-home-page-div')
 const titleImgHolder = document.querySelector('#title-img-holder')
 const titleFormHolder = document.querySelector('#title-form-holder')
 const titleErrorMessage = document.querySelector('#title-error-message')
+const titleSignUpErrorMessage = document.querySelector('#title-signup-error-message')
 const titleUserNameHolder = document.querySelector('#title-username-holder')
 const titleLogOutHolder = document.querySelector('#title-logout-holder')
 
@@ -120,6 +121,7 @@ const logOut = () => {
     loggedIn = false
     currentUser = 0
     renderUserForm()
+    renderSignUpForm()
     titleUserNameHolder.innerHTML = ""
 }
 
@@ -170,38 +172,42 @@ const renderSignUpForm = () => {
     titleFormHolder.append(form)
 
     /** EVENT HANDLING USER CREATE FORM */
-    // form.addEventListener("submit", event => {
-    //     event.preventDefault();
-    //     titleErrorMessage.innerHTML = ""
-    //     const userInput = event.target.username.value
-
-    //     client.get("/users").then((usersArray) => {
-    //       usersArray.pluck(:username)
-
-        //     if (user.username != userInput) {
-        //       currentUser = user.id
-        //       currentUsername = user.username
-
-        //       const userObj = {
-        //         username: userInput
-        //       }
-
-        //       titlePageTitleDiv.innerHTML = ""
-        //       titleFormHolder.innerHTML = ""
-        //       appTitle.renderForHomePage()
-        //       renderRoomsNavForHome()
-    
-        //       client.post("/users", userObj)
-        //         .then(console.log)
-            
-        //     } else {
-        //       const errorMessage = document.createElement("h5")
-        //       errorMessage.textContent = "Username has been taken"
-        //       titleErrorMessage.append(errorMessage)
-        //     }
-        //   })
-    //     })
-    // })
+    form.addEventListener("submit", event => {
+        event.preventDefault()
+        titleErrorMessage.innerHTML = ""
+        titleSignUpErrorMessage.innerHTML = ""
+        const userInput = event.target.username.value
+        
+        client.get("/users")
+            .then((usersArray) => {
+                const newUserObj = {
+                    username: userInput
+                }
+                let availableUser = true
+                usersArray.forEach((user) => {
+                    if (user.username === userInput || userInput === "") {
+                        availableUser = false
+                        titleSignUpErrorMessage.innerHTML = ""
+                        const errorMessage = document.createElement("h5")
+                        errorMessage.textContent = "Invalid Username or has been taken. Please try again."
+                        titleSignUpErrorMessage.append(errorMessage)
+                    }
+                })
+                if (availableUser === true) {
+                    client.post("/users", newUserObj)
+                        .then(user => {
+                            currentUser = user.id
+                            currentUsername = user.username
+                            loggedIn = true
+                            titleErrorMessage.innerHTML = ""
+                            titleSignUpErrorMessage.innerHTML = ""
+                            displayLoggedInUserHomePage()
+                            appTitle.renderForHomePage()
+                            return renderRoomsNavForHome()
+                        })
+                }
+        })  
+    }) 
 }
 
 
