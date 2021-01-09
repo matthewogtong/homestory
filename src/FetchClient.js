@@ -42,7 +42,7 @@ class FetchClient {
 
 }
 
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://homestry.herokuapp.com/"
 const client = new FetchClient(baseUrl)
 
 
