@@ -18,5 +18,6 @@ Please make sure to update tests as appropriate.
 [Backend Repo](https://github.com/matthewogtong/homestory-backend)
 
 ## Creators
-[Matt Ogtong](https://github.com/matthewogtong)
+[Matt Ogtong](https://github.com/matthewogtong) and 
 [Melissa Mach](https://github.com/thecodeplanner)
+
