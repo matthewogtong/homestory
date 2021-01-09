@@ -30,16 +30,23 @@ class AppTitleComponent {
         })
 
         h1.addEventListener("click", () => {
-          h1.remove()
-          titleFormHolder.innerHTML = ""
-          titleErrorMessage.innerHTML = ""
-          titleSignUpErrorMessage.innerHTML = ""
-          titleUserNameHolder.innerHTML = ""
-          titleLogOutHolder.innerHTML = " "
-          appTitle.renderForHomePage()
-          displayLoggedInUserHomePage()
-          renderRoomsNavForHome()
-        })
+          if (loggedIn === true) {
+                h1.remove()
+                titleFormHolder.innerHTML = ""
+                titleErrorMessage.innerHTML = ""
+                titleSignUpErrorMessage.innerHTML = ""
+                titleUserNameHolder.innerHTML = ""
+                titleLogOutHolder.innerHTML = " "
+                appTitle.renderForHomePage()
+                displayLoggedInUserHomePage()
+                renderRoomsNavForHome()
+                } else {
+                    titleErrorMessage.innerHTML = " "
+                    const h5 = document.createElement("h5")
+                    h5.textContent = "Please log in first."
+                    titleErrorMessage.append(h5)
+                }
+            })
 
         
     }

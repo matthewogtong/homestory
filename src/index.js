@@ -90,6 +90,8 @@ const renderUserForm = () => {
             if(userList.includes(userInput) === false ) {
                 const errorMessage = document.createElement("h5")
                 errorMessage.textContent = "Invalid Username"
+                titleErrorMessage.innerHTML = ""
+                titleSignUpErrorMessage.innerHTML = ""
                 titleErrorMessage.append(errorMessage)
             }
             })
