@@ -166,7 +166,7 @@ const renderSignUpForm = () => {
     const button = document.createElement("button")
     button.setAttribute("type", "submit")
     button.classList.add("btn", "btn-primary", "mb-3")
-    button.textContent = "Create New User ~"
+    button.textContent = "Create A New User ~"
 
     divUserInput.append(inputLabel, usernameInput)
     divSubmit.append(button)

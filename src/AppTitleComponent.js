@@ -42,6 +42,7 @@ class AppTitleComponent {
                 renderRoomsNavForHome()
                 } else {
                     titleErrorMessage.innerHTML = " "
+                    titleSignUpErrorMessage.innerHTML = " "
                     const h5 = document.createElement("h5")
                     h5.textContent = "Please log in first."
                     titleErrorMessage.append(h5)
