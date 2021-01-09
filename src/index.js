@@ -282,13 +282,13 @@ const renderFurnitureForm = () => {
                         <br>
                         <br>
 
-                        <label for="image">Image</label>
+                        <label for="image">Image URL</label>
                         <br>
                         <input type="text" name="image" id="image-url" />
                         <br>
                         <br>
 
-                        <label for="url">Website</label>
+                        <label for="url">Website URL</label>
                         <br>
                         <input type="text" name="url" id="website-name" />
                         <br>
