@@ -8,9 +8,11 @@ The frontend is built with Javascript with custom CSS styling and Bootstrap for 
 
 The backend was built with Ruby using Rails as an API.
 
-
 ## Backend
 [Backend Repo](https://github.com/matthewogtong/homestory-backend)
+
+## Other Libraries
+[animejs](https://animejs.com/)
 
 ## Creators
 [Matt Ogtong](https://github.com/matthewogtong) and 
