@@ -31,7 +31,7 @@ class FurnitureComponent {
                     <input type="text" name="name" class="form-control" value="${this.furnitureData.name}">
                 </div>
                 <div class="url-div">
-                    <label for="url" class="form-label">Website</label>
+                    <label for="url" class="form-label">Website URL</label>
                     <input type="text" name="url" class="form-control" value=${this.furnitureData.url}>
                 </div>
                 <div class="price-div">

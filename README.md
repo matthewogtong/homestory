@@ -1,4 +1,4 @@
-# HomeStory
+# About
 
 Homestory is a webapp for storing interested furniture items you plan on purchasing in the future or simply just want to keep tabs of.
 
@@ -8,13 +8,8 @@ The frontend is built with Javascript with custom CSS styling and Bootstrap for 
 
 The backend was built with Ruby using Rails as an API.
 
-## Usage
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
+## Backend
 [Backend Repo](https://github.com/matthewogtong/homestory-backend)
 
 ## Creators
